@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Company Mail System"/>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[500, 600]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[500, 600]"/>
+    </Property>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="contentPane" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="contentPane" alignment="1" min="-2" pref="600" max="-2" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="contentPane">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[500, 600]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[500, 600]"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="inboxModel = new DefaultTableModel(){&#xa;    @Override&#xa;    public boolean isCellEditable(int row, int column){&#xa;    return false;&#xa;    }&#xa;};&#xa;spamModel = new DefaultTableModel(){&#xa;    @Override&#xa;    public boolean isCellEditable(int row, int column){&#xa;    return false;&#xa;    }&#xa;};&#xa;archModel = new DefaultTableModel(){&#xa;    @Override&#xa;    public boolean isCellEditable(int row, int column){&#xa;    return false;&#xa;    }&#xa;};&#xa;trashModel = new DefaultTableModel(){&#xa;    @Override&#xa;    public boolean isCellEditable(int row, int column){&#xa;    return false;&#xa;    }&#xa;};&#xa;sentModel = new DefaultTableModel(){&#xa;    @Override&#xa;    public boolean isCellEditable(int row, int column){&#xa;    return false;&#xa;    }&#xa;};&#xa;Object[] colReqName = new Object[3];&#xa;colReqName[0] = &quot;Date&quot;;&#xa;colReqName[1] = &quot;From&quot;;&#xa;colReqName[2] = &quot;Subject&quot;;&#xa;        &#xa;Object[] colReqName2 = new Object[3];&#xa;colReqName2[0] = &quot;Date&quot;;&#xa;colReqName2[1] = &quot;To&quot;;&#xa;colReqName2[2] = &quot;Subject&quot;;&#xa;        &#xa;sentModel.setColumnIdentifiers(colReqName2);&#xa;sentData = new Object[3];&#xa;&#xa;inboxModel.setColumnIdentifiers(colReqName);&#xa;inboxData = new Object[3];&#xa;spamModel.setColumnIdentifiers(colReqName);&#xa;spamData = new Object[3];&#xa;archModel.setColumnIdentifiers(colReqName);&#xa;archData = new Object[3];&#xa;trashModel.setColumnIdentifiers(colReqName);&#xa;trashData = new Object[3];&#xa;try{&#xa;    &#xa;    for (int i = 0; i &lt; worker.getMailList(worker.getId()).size(); i++){&#xa;        switch(worker.getMailList(worker.getId()).get(i).getMailBox()){&#xa;        case &quot;1&quot;:&#xa;            inboxData[0] = worker.getMailList(worker.getId()).get(i).getMailTime();&#xa;            inboxData[1] = worker.getMailList(worker.getId()).get(i).getMailFrom();&#xa;            inboxData[2] = worker.getMailList(worker.getId()).get(i).getMailSubject();&#xa;            inboxModel.addRow(inboxData);&#xa;            break;&#xa;        case &quot;2&quot;:&#xa;            spamData[0] = worker.getMailList(worker.getId()).get(i).getMailTime();&#xa;            spamData[1] = worker.getMailList(worker.getId()).get(i).getMailFrom();&#xa;            spamData[2] = worker.getMailList(worker.getId()).get(i).getMailSubject();&#xa;            spamModel.addRow(spamData);&#xa;            break;&#xa;        case &quot;3&quot;:&#xa;            archData[0] = worker.getMailList(worker.getId()).get(i).getMailTime();&#xa;            archData[1] = worker.getMailList(worker.getId()).get(i).getMailFrom();&#xa;            archData[2] = worker.getMailList(worker.getId()).get(i).getMailSubject();&#xa;            archModel.addRow(archData);&#xa;            break;&#xa;        case &quot;4&quot;:&#xa;            trashData[0] = worker.getMailList(worker.getId()).get(i).getMailTime();&#xa;            trashData[1] = worker.getMailList(worker.getId()).get(i).getMailFrom();&#xa;            trashData[2] = worker.getMailList(worker.getId()).get(i).getMailSubject();&#xa;            trashModel.addRow(trashData);&#xa;            break;&#xa;        case &quot;5&quot;:&#xa;            sentData[0] = worker.getMailList(worker.getId()).get(i).getMailTime();&#xa;            sentData[1] = worker.getMailList(worker.getId()).get(i).getMailTo();&#xa;            sentData[2] = worker.getMailList(worker.getId()).get(i).getMailSubject();&#xa;            sentModel.addRow(sentData);&#xa;            break;&#xa;        }&#xa;    }&#xa;}catch(Exception e){&#xa;&#xa;}"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="false"/>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="welcomeText">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="byte[] bytes = worker.getName().getBytes(StandardCharsets.UTF_8);&#xa;String utf8EncodedName = new String(bytes, StandardCharsets.UTF_8);">
+              <Font name="Slenco Black" size="24" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;Welcome, &quot; + utf8EncodedName" type="code"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="20" width="340" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Container class="javax.swing.JTabbedPane" name="tabs">
+          <Properties>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[480, 440]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="10" y="70" width="480" height="520"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="inboxTab">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Inbox">
+                    <Property name="tabTitle" type="java.lang.String" value="Inbox"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="inboxTable">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="inboxModel" type="code"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="inboxMenu = new JPopupMenu();&#xa;JMenuItem spamItem = new JMenuItem(&quot;Mark as spam&quot;);&#xa;JMenuItem trashItem = new JMenuItem(&quot;Put in the trash&quot;);&#xa;JMenuItem archItem = new JMenuItem(&quot;Archieve&quot;);&#xa;JMenuItem openItem = new JMenuItem(&quot;Open mail&quot;);&#xa;inboxMenu.add(openItem);&#xa;inboxMenu.add(spamItem);&#xa;inboxMenu.add(archItem);&#xa;inboxMenu.add(trashItem);&#xa;inboxTable.setComponentPopupMenu(inboxMenu);&#xa;        &#xa;        &#xa;spamItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = inboxTable.getValueAt(inboxTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            inboxModel.removeRow(inboxTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;2&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});&#xa;&#xa;archItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = inboxTable.getValueAt(inboxTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            inboxModel.removeRow(inboxTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;3&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;&#xa;    }&#xa;&#xa;});        &#xa;&#xa;&#xa;trashItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = inboxTable.getValueAt(inboxTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            inboxModel.removeRow(inboxTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;4&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;&#xa;    }&#xa;&#xa;});&#xa;&#xa;openItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selDate = inboxTable.getValueAt(inboxTable.getSelectedRow(),0).toString();&#xa;            String selEmail = inboxTable.getValueAt(inboxTable.getSelectedRow(), 1).toString();&#xa;            String selSub = inboxTable.getValueAt(inboxTable.getSelectedRow(), 2).toString();&#xa;            JFrame mailFrame = new JFrame(selSub);&#xa;            mailFrame.setVisible(true);&#xa;            mailFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);&#xa;            mailFrame.setSize(400, 450);&#xa;            mailFrame.setResizable(false);&#xa;            mailFrame.setLayout(null);&#xa;        &#xa;            JTextField dateField = new JTextField();&#xa;            dateField.setText(&quot;Date: &quot; + selDate);&#xa;            dateField.setBounds(50, 20, 300, 30);&#xa;            dateField.setEditable(false);&#xa;            mailFrame.add(dateField);&#xa;        &#xa;            JTextField fromField = new JTextField();&#xa;            fromField.setText(&quot;From: &quot; + selEmail);&#xa;            fromField.setBounds(50, 60, 300, 30);&#xa;            fromField.setEditable(false);&#xa;            mailFrame.add(fromField);&#xa;        &#xa;            JTextField subField = new JTextField();&#xa;            subField.setText(&quot;Subject: &quot; + selSub);&#xa;            subField.setBounds(50, 100, 300, 30);&#xa;            subField.setEditable(false);&#xa;            mailFrame.add(subField);&#xa;        &#xa;            JTextArea mailContent = new JTextArea();&#xa;            JScrollPane sp = new JScrollPane(mailContent);&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            String query = String.format(&quot;SELECT mail_content FROM users_mails.%dmails WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            ResultSet rs = st.executeQuery(query);&#xa;            String content = null;&#xa;            while(rs.next()){&#xa;                content = rs.getString(&quot;mail_content&quot;);&#xa;            }&#xa;            sp.setBounds(50, 140, 300, 250);&#xa;            mailContent.setEditable(false);&#xa;            mailContent.setText(content);&#xa;            mailContent.setLineWrap(true);&#xa;            mailFrame.getContentPane().add(sp);&#xa;        &#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});        &#xa;        &#xa;        &#xa;        &#xa;inboxMenu.addMouseListener(new MouseAdapter(){&#xa;    public void mousePressed(MouseEvent mevt){&#xa;        Point point = mevt.getPoint();&#xa;        int selectedRow = inboxTable.rowAtPoint(point);&#xa;        inboxTable.setRowSelectionInterval(selectedRow, selectedRow);&#xa;    }&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="private javax.swing.JPopupMenu inboxMenu;"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="inboxTable.setFocusable(false);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="sentTab">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Sent">
+                    <Property name="tabTitle" type="java.lang.String" value="Sent"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="sentTable">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="sentModel" type="code"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="sentMenu = new JPopupMenu();&#xa;JMenuItem s2OpenItem = new JMenuItem(&quot;Open mail&quot;);&#xa;sentMenu.add(s2OpenItem);&#xa;sentTable.setComponentPopupMenu(sentMenu);&#xa;&#xa;s2OpenItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selDate = sentTable.getValueAt(sentTable.getSelectedRow(),0).toString();&#xa;            String selEmail = sentTable.getValueAt(sentTable.getSelectedRow(), 1).toString();&#xa;            String selSub = sentTable.getValueAt(sentTable.getSelectedRow(), 2).toString();&#xa;            JFrame mailFrame = new JFrame(selSub);&#xa;            mailFrame.setVisible(true);&#xa;            mailFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);&#xa;            mailFrame.setSize(400, 450);&#xa;            mailFrame.setResizable(false);&#xa;            mailFrame.setLayout(null);&#xa;        &#xa;            JTextField dateField = new JTextField();&#xa;            dateField.setText(&quot;Date: &quot; + selDate);&#xa;            dateField.setBounds(50, 20, 300, 30);&#xa;            dateField.setEditable(false);&#xa;            mailFrame.add(dateField);&#xa;        &#xa;            JTextField fromField = new JTextField();&#xa;            fromField.setText(&quot;To: &quot; + selEmail);&#xa;            fromField.setBounds(50, 60, 300, 30);&#xa;            fromField.setEditable(false);&#xa;            mailFrame.add(fromField);&#xa;        &#xa;            JTextField subField = new JTextField();&#xa;            subField.setText(&quot;Subject: &quot; + selSub);&#xa;            subField.setBounds(50, 100, 300, 30);&#xa;            subField.setEditable(false);&#xa;            mailFrame.add(subField);&#xa;        &#xa;            JTextArea mailContent = new JTextArea();&#xa;            JScrollPane sp = new JScrollPane(mailContent);&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            String query = String.format(&quot;SELECT mail_content FROM users_mails.%dmails WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            ResultSet rs = st.executeQuery(query);&#xa;            String content = null;&#xa;            while(rs.next()){&#xa;                content = rs.getString(&quot;mail_content&quot;);&#xa;            }&#xa;            sp.setBounds(50, 140, 300, 250);&#xa;            mailContent.setEditable(false);&#xa;            mailContent.setText(content);&#xa;            mailContent.setLineWrap(true);&#xa;            mailFrame.getContentPane().add(sp);&#xa;        &#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="private javax.swing.JPopupMenu sentMenu;"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sentTable.setFocusable(false);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="spamTab">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Spam">
+                    <Property name="tabTitle" type="java.lang.String" value="Spam"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="spamTable">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="spamModel" type="code"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="spamMenu = new JPopupMenu();&#xa;JMenuItem sInboxItem = new JMenuItem(&quot;Remove from spam&quot;);&#xa;JMenuItem sTrashItem = new JMenuItem(&quot;Put in the trash&quot;);&#xa;JMenuItem sArchItem = new JMenuItem(&quot;Archieve&quot;);&#xa;JMenuItem sOpenItem = new JMenuItem(&quot;Open mail&quot;);&#xa;spamMenu.add(sOpenItem);&#xa;spamMenu.add(sInboxItem);&#xa;spamMenu.add(sArchItem);&#xa;spamMenu.add(sTrashItem);&#xa;spamTable.setComponentPopupMenu(spamMenu);&#xa;        &#xa;        &#xa;sInboxItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = spamTable.getValueAt(spamTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            spamModel.removeRow(spamTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;1&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});&#xa;&#xa;sArchItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = spamTable.getValueAt(spamTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            spamModel.removeRow(spamTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;3&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;&#xa;    }&#xa;&#xa;});        &#xa;&#xa;&#xa;sTrashItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = spamTable.getValueAt(spamTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            spamModel.removeRow(spamTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;4&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;&#xa;    }&#xa;&#xa;});        &#xa;&#xa;sOpenItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selDate = spamTable.getValueAt(spamTable.getSelectedRow(),0).toString();&#xa;            String selEmail = spamTable.getValueAt(spamTable.getSelectedRow(), 1).toString();&#xa;            String selSub = spamTable.getValueAt(spamTable.getSelectedRow(), 2).toString();&#xa;            JFrame mailFrame = new JFrame(selSub);&#xa;            mailFrame.setVisible(true);&#xa;            mailFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);&#xa;            mailFrame.setSize(400, 450);&#xa;            mailFrame.setResizable(false);&#xa;            mailFrame.setLayout(null);&#xa;        &#xa;            JTextField dateField = new JTextField();&#xa;            dateField.setText(&quot;Date: &quot; + selDate);&#xa;            dateField.setBounds(50, 20, 300, 30);&#xa;            dateField.setEditable(false);&#xa;            mailFrame.add(dateField);&#xa;        &#xa;            JTextField fromField = new JTextField();&#xa;            fromField.setText(&quot;From: &quot; + selEmail);&#xa;            fromField.setBounds(50, 60, 300, 30);&#xa;            fromField.setEditable(false);&#xa;            mailFrame.add(fromField);&#xa;        &#xa;            JTextField subField = new JTextField();&#xa;            subField.setText(&quot;Subject: &quot; + selSub);&#xa;            subField.setBounds(50, 100, 300, 30);&#xa;            subField.setEditable(false);&#xa;            mailFrame.add(subField);&#xa;        &#xa;            JTextArea mailContent = new JTextArea();&#xa;            JScrollPane sp = new JScrollPane(mailContent);&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            String query = String.format(&quot;SELECT mail_content FROM users_mails.%dmails WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            ResultSet rs = st.executeQuery(query);&#xa;            String content = null;&#xa;            while(rs.next()){&#xa;                content = rs.getString(&quot;mail_content&quot;);&#xa;            }&#xa;            sp.setBounds(50, 140, 300, 250);&#xa;            mailContent.setEditable(false);&#xa;            mailContent.setText(content);&#xa;            mailContent.setLineWrap(true);&#xa;            mailFrame.getContentPane().add(sp);&#xa;        &#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});        &#xa;        &#xa;        &#xa;spamMenu.addMouseListener(new MouseAdapter(){&#xa;    public void mousePressed(MouseEvent mevt){&#xa;        Point point = mevt.getPoint();&#xa;        int selectedRow = spamTable.rowAtPoint(point);&#xa;        spamTable.setRowSelectionInterval(selectedRow, selectedRow);&#xa;    }&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="private javax.swing.JPopupMenu spamMenu;"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="spamTable.setFocusable(false);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="archieveTab">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Archieve">
+                    <Property name="tabTitle" type="java.lang.String" value="Archieve"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="archTable">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="archModel" type="code"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="archMenu = new JPopupMenu();&#xa;JMenuItem aInboxItem = new JMenuItem(&quot;Remove from archieve&quot;);&#xa;JMenuItem aTrashItem = new JMenuItem(&quot;Put in the trash&quot;);&#xa;JMenuItem aSpamItem = new JMenuItem(&quot;Mark as spam&quot;);&#xa;JMenuItem aOpenItem = new JMenuItem(&quot;Open mail&quot;);&#xa;archMenu.add(aOpenItem);&#xa;archMenu.add(aInboxItem);&#xa;archMenu.add(aSpamItem);&#xa;archMenu.add(aTrashItem);&#xa;archTable.setComponentPopupMenu(archMenu);&#xa;        &#xa;        &#xa;aInboxItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = archTable.getValueAt(archTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            archModel.removeRow(archTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;1&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});&#xa;&#xa;aSpamItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = archTable.getValueAt(archTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            archModel.removeRow(archTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;2&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;&#xa;    }&#xa;&#xa;});        &#xa;&#xa;&#xa;aTrashItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = archTable.getValueAt(archTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            archModel.removeRow(archTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;4&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;&#xa;    }&#xa;&#xa;});&#xa;&#xa;&#xa;aOpenItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selDate = archTable.getValueAt(archTable.getSelectedRow(),0).toString();&#xa;            String selEmail = archTable.getValueAt(archTable.getSelectedRow(), 1).toString();&#xa;            String selSub = archTable.getValueAt(archTable.getSelectedRow(), 2).toString();&#xa;            JFrame mailFrame = new JFrame(selSub);&#xa;            mailFrame.setVisible(true);&#xa;            mailFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);&#xa;            mailFrame.setSize(400, 450);&#xa;            mailFrame.setResizable(false);&#xa;            mailFrame.setLayout(null);&#xa;        &#xa;            JTextField dateField = new JTextField();&#xa;            dateField.setText(&quot;Date: &quot; + selDate);&#xa;            dateField.setBounds(50, 20, 300, 30);&#xa;            dateField.setEditable(false);&#xa;            mailFrame.add(dateField);&#xa;        &#xa;            JTextField fromField = new JTextField();&#xa;            fromField.setText(&quot;From: &quot; + selEmail);&#xa;            fromField.setBounds(50, 60, 300, 30);&#xa;            fromField.setEditable(false);&#xa;            mailFrame.add(fromField);&#xa;        &#xa;            JTextField subField = new JTextField();&#xa;            subField.setText(&quot;Subject: &quot; + selSub);&#xa;            subField.setBounds(50, 100, 300, 30);&#xa;            subField.setEditable(false);&#xa;            mailFrame.add(subField);&#xa;        &#xa;            JTextArea mailContent = new JTextArea();&#xa;            JScrollPane sp = new JScrollPane(mailContent);&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            String query = String.format(&quot;SELECT mail_content FROM users_mails.%dmails WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            ResultSet rs = st.executeQuery(query);&#xa;            String content = null;&#xa;            while(rs.next()){&#xa;                content = rs.getString(&quot;mail_content&quot;);&#xa;            }&#xa;            sp.setBounds(50, 140, 300, 250);&#xa;            mailContent.setEditable(false);&#xa;            mailContent.setText(content);&#xa;            mailContent.setLineWrap(true);&#xa;            mailFrame.getContentPane().add(sp);&#xa;        &#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});        &#xa;        &#xa;        &#xa;        &#xa;archMenu.addMouseListener(new MouseAdapter(){&#xa;    public void mousePressed(MouseEvent mevt){&#xa;        Point point = mevt.getPoint();&#xa;        int selectedRow = archTable.rowAtPoint(point);&#xa;        archTable.setRowSelectionInterval(selectedRow, selectedRow);&#xa;    }&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="private javax.swing.JPopupMenu archMenu;"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="archTable.setFocusable(false);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="trashTab">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Trash">
+                    <Property name="tabTitle" type="java.lang.String" value="Trash"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="trashTable">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="trashModel" type="code"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="trashMenu = new JPopupMenu();&#xa;JMenuItem tOpenItem = new JMenuItem(&quot;Open mail&quot;);&#xa;JMenuItem tInboxItem = new JMenuItem(&quot;Remove from trash&quot;);&#xa;JMenuItem tArchItem = new JMenuItem(&quot;Archieve&quot;);&#xa;JMenuItem tSpamItem = new JMenuItem(&quot;Mark as spam&quot;);&#xa;JMenuItem tDeletePerm = new JMenuItem(&quot;Delete permanently&quot;);&#xa;trashMenu.add(tOpenItem);&#xa;trashMenu.add(tInboxItem);&#xa;trashMenu.add(tSpamItem);&#xa;trashMenu.add(tArchItem);&#xa;trashMenu.add(tDeletePerm);&#xa;trashTable.setComponentPopupMenu(trashMenu);&#xa;        &#xa;        &#xa;tInboxItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = trashTable.getValueAt(trashTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            trashModel.removeRow(trashTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;1&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});&#xa;&#xa;tSpamItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = trashTable.getValueAt(trashTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            trashModel.removeRow(trashTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;2&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;&#xa;    }&#xa;&#xa;});        &#xa;&#xa;&#xa;tArchItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = trashTable.getValueAt(trashTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            trashModel.removeRow(trashTable.getSelectedRow());&#xa;            String query = String.format(&quot;UPDATE users_mails.%dmails SET mail_box = &apos;3&apos; WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;&#xa;    }&#xa;&#xa;});        &#xa;&#xa;tDeletePerm.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selSub = trashTable.getValueAt(trashTable.getSelectedRow(), 2).toString();&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            trashModel.removeRow(trashTable.getSelectedRow());&#xa;            String query = String.format(&quot;DELETE FROM users_mails.%dmails WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            st.executeUpdate(query);&#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});        &#xa;&#xa;tOpenItem.addActionListener(new ActionListener(){&#xa;    public void actionPerformed(ActionEvent e10){&#xa;        try{&#xa;            String selDate = trashTable.getValueAt(trashTable.getSelectedRow(),0).toString();&#xa;            String selEmail = trashTable.getValueAt(trashTable.getSelectedRow(), 1).toString();&#xa;            String selSub = trashTable.getValueAt(trashTable.getSelectedRow(), 2).toString();&#xa;            JFrame mailFrame = new JFrame(selSub);&#xa;            mailFrame.setVisible(true);&#xa;            mailFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);&#xa;            mailFrame.setSize(400, 450);&#xa;            mailFrame.setResizable(false);&#xa;            mailFrame.setLayout(null);&#xa;        &#xa;            JTextField dateField = new JTextField();&#xa;            dateField.setText(&quot;Date: &quot; + selDate);&#xa;            dateField.setBounds(50, 20, 300, 30);&#xa;            dateField.setEditable(false);&#xa;            mailFrame.add(dateField);&#xa;        &#xa;            JTextField fromField = new JTextField();&#xa;            fromField.setText(&quot;From: &quot; + selEmail);&#xa;            fromField.setBounds(50, 60, 300, 30);&#xa;            fromField.setEditable(false);&#xa;            mailFrame.add(fromField);&#xa;        &#xa;            JTextField subField = new JTextField();&#xa;            subField.setText(&quot;Subject: &quot; + selSub);&#xa;            subField.setBounds(50, 100, 300, 30);&#xa;            subField.setEditable(false);&#xa;            mailFrame.add(subField);&#xa;        &#xa;            JTextArea mailContent = new JTextArea();&#xa;            JScrollPane sp = new JScrollPane(mailContent);&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            String query = String.format(&quot;SELECT mail_content FROM users_mails.%dmails WHERE mail_subject =&apos;&quot; + selSub + &quot;&apos;&quot;,worker.getId());&#xa;            ResultSet rs = st.executeQuery(query);&#xa;            String content = null;&#xa;            while(rs.next()){&#xa;                content = rs.getString(&quot;mail_content&quot;);&#xa;            }&#xa;            sp.setBounds(50, 140, 300, 250);&#xa;            mailContent.setEditable(false);&#xa;            mailContent.setText(content);&#xa;            mailContent.setLineWrap(true);&#xa;            mailFrame.getContentPane().add(sp);&#xa;        &#xa;        } catch(SQLException e2){&#xa;            e2.printStackTrace();&#xa;        } catch(Exception e){&#xa;            Helper.Helper.showMsg(&quot;choose&quot;);&#xa;        }&#xa;        &#xa;    }&#xa;&#xa;});        &#xa;        &#xa;trashMenu.addMouseListener(new MouseAdapter(){&#xa;    public void mousePressed(MouseEvent mevt){&#xa;        Point point = mevt.getPoint();&#xa;        int selectedRow = trashTable.rowAtPoint(point);&#xa;        trashTable.setRowSelectionInterval(selectedRow, selectedRow);&#xa;    }&#xa;});"/>
+                    <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="private javax.swing.JPopupMenu trashMenu;"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="trashTable.setFocusable(false);"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="composemailTab">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Compose Mail">
+                    <Property name="tabTitle" type="java.lang.String" value="Compose Mail"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="jPanel1">
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                    <Property name="useNullLayout" type="boolean" value="false"/>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="composetoLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="To:"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="10" y="10" width="30" height="20"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="composetoField">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="composetoFieldActionPerformed"/>
+                      </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="70" y="10" width="400" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="composesubjectLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Message:"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="10" y="90" width="80" height="20"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="composesubjectField">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="composesubjectFieldActionPerformed"/>
+                      </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="70" y="50" width="400" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="10" y="120" width="460" height="300"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextArea" name="jTextArea1">
+                          <Properties>
+                            <Property name="columns" type="int" value="20"/>
+                            <Property name="rows" type="int" value="5"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="composesubjectLabel1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Subject:"/>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="10" y="50" width="50" height="20"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="sendButton">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Send"/>
+                        <Property name="focusable" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="false);/*" type="code"/>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="*/&#xa;&#xa;sendButton.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        String toMail = composetoField.getText();&#xa;        String subMail = composesubjectField.getText();&#xa;        String contMail = jTextArea1.getText();&#xa;        String curDate = dateFormat.format(cal.getTime());&#xa;        &#xa;        try{&#xa;            Connection con = conn.connDb();&#xa;            Statement st = con.createStatement();&#xa;            String query = &quot;SELECT id_users_table FROM users.users_table WHERE users_email = &apos;&quot; + toMail + &quot;&apos;&quot;;&#xa;            ResultSet rs = st.executeQuery(query);&#xa;            String id = null;&#xa;            while(rs.next()){&#xa;                id = rs.getString(&quot;id_users_table&quot;).toString();&#xa;            }&#xa;        &#xa;            String query2 = String.format(&quot;INSERT INTO users_mails.%smails (mail_to,mail_from,mail_subject,mail_content,mail_time,mail_box) VALUES (?,?,?,?,?,?)&quot;, id);&#xa;            PreparedStatement ps = con.prepareStatement(query2);&#xa;            ps.setString(1, toMail);&#xa;            ps.setString(2, worker.getAddress());&#xa;            ps.setString(3, subMail);&#xa;            ps.setString(4, contMail);&#xa;            ps.setString(5, curDate);&#xa;            ps.setString(6, &quot;1&quot;);&#xa;            ps.executeUpdate();&#xa;        &#xa;            String query3 = String.format(&quot;INSERT INTO users_mails.%smails (mail_to,mail_from,mail_subject,mail_content,mail_time,mail_box) VALUES (?,?,?,?,?,?)&quot;, worker.getId());&#xa;            PreparedStatement ps2 = con.prepareStatement(query3);&#xa;            ps2.setString(1, toMail);&#xa;            ps2.setString(2, worker.getAddress());&#xa;            ps2.setString(3, subMail);&#xa;            ps2.setString(4, contMail);&#xa;            ps2.setString(5, curDate);&#xa;            ps2.setString(6, &quot;5&quot;);&#xa;            ps2.executeUpdate();&#xa;        } catch(SQLException e11){&#xa;            e11.printStackTrace();&#xa;        }&#xa;&#xa;        composetoField.setText(&quot;&quot;);&#xa;        composesubjectField.setText(&quot;&quot;);&#xa;        jTextArea1.setText(&quot;&quot;);&#xa;        &#xa;    }&#xa;});&#xa;&#xa;jPanel1.add(sendButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 220, 40));"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="10" y="430" width="220" height="40"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="clearButton">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Clear"/>
+                        <Property name="focusable" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                          <Connection code="false);/*" type="code"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clearButtonActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="*/&#xa;clearButton.addActionListener(new java.awt.event.ActionListener() {&#xa;    public void actionPerformed(java.awt.event.ActionEvent evt) {&#xa;        composetoField.setText(&quot;&quot;);&#xa;        composesubjectField.setText(&quot;&quot;);&#xa;        jTextArea1.setText(&quot;&quot;);&#xa;    }&#xa;});&#xa;&#xa;jPanel1.add(clearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 220, 40));"/>
+                      </AuxValues>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="250" y="430" width="220" height="40"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="logoutBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Logout"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutBtnActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="380" y="10" width="110" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JButton" name="refreshBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Refresh"/>
+            <Property name="focusPainted" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshBtnActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="380" y="40" width="110" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
